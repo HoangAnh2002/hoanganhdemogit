@@ -1,0 +1,94 @@
+<div ng-controller="employeeCtrl">
+    <div kendo-window="editEmployee"
+         k-modal="true"
+         k-title="'Edit-Employee'"
+         k-width="550"
+         k-resizable="true"
+         k-height="450"
+         k-visible="false">
+
+        <div ng-controller="Popup-edit-ctrl">
+
+            <form align="center" style="align-content:center" class="form-group">
+                <div class="form-group" align="center">
+                    <label for="name">Name of employee:</label>
+                    <input id="name" type="text"
+                           ng-model="name"
+                           class="form-control col-md-8"
+                           placeholder="Input your name">
+                </div>
+                <div class="form-group" align="center">
+                    <label for="email">Email of employee:</label>
+                    <input id="email" type="text"
+                           ng-model="email"
+                           class="form-control col-md-8"
+                           placeholder="Input your email">
+                </div>
+                <div class="form-group" align="center">
+                    <label for="phone">Number phone:</label>
+                    <input id="phone" type="text"
+                           ng-model="phone"
+                           class="form-control col-md-8"
+                           placeholder="Input your phone number">
+                </div>
+
+                <button id="editId" type="submit"
+                        class="btn btn-default"
+                        ng-click=editEmployee(name,email,phone)
+                >Edit
+                </button>
+                <button id="cancelId" type="cancel"
+                        class="btn btn-default"
+                        ng-click=cancel()
+                >Cancel
+                </button>
+            </form>
+        </div>
+    </div>
+    <div kendo-window="deletepopup"
+         k-modal="true"
+         k-title="Confirm delete!!!"
+         k-width="200"
+         k-resizable="false"
+         k-height="200"
+         k-visible="false">
+
+
+        <div ng-controller="Popup-delete-ctrl">
+            <button id="confirmId" type="submit"
+                    class="btn btn-default"
+                    ng-click=deleteEmployee()
+            >Confirm
+            </button>
+            <button id="cancel_Id_delete" type="cancel"
+                    class="btn btn-default"
+                    ng-click=cancel()
+            >Cancel
+            </button>
+        </div>
+    </div>
+    <button class="btn" ng-click=editEmployee()><i class="fa fa-edit" style="font-size: 22px"></i></button>
+    <button class="btn" ng-click=deleteEmployee()><i class="fa fa-trash" style="font-size: 22px"></i></button>
+</div>
+
+
+<script>
+    angular.module("KendoDemos", ["kendo.directives"])
+        .controller("Host", function ($scope) {
+            $scope.Show = function () {
+                $scope.editPopup.center();
+                $scope.editPopup.open();
+            }
+        }).controller("Popup", function ($scope) {
+        var datasources = [{ID: 13, Name: "ID is 13"}, {ID: 14, Name: "ID is 14"}];
+        $scope.datasources = datasources;
+        var dataview = {DataSourceID: 14};
+        $scope.dataview = dataview;
+    });
+</script>
+
+
+<button class="btn" ng-click=EditEmployee()><i class="fa fa-edit" style="font-size: 22px"></i></button>\n' +
+
+<button class="btn" ng-click=DeleteEmployee()><i class="fa fa-trash" style="font-size: 22px"></i></button>\n' +
+</div>'
